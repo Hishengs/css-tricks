@@ -1,41 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>垂直居中</title>
+  <meta charset="utf-8">
+  <title>垂直居中</title>
 </head>
 <style>
-	.demo {
-		margin-bottom: 50px;
-	}
-	.title {
-		color: #444;
-	}
-	.description {
-		color: #666;
-		font-size: 12px;
-		font-style: italic;
-	}
-	.test {
-		background: #108ee9;
-		color: #ffffff;
-		padding: 0 10px;
-	}
+  .demo {
+    margin-bottom: 50px;
+  }
+  .title {
+    color: #444;
+  }
+  .description {
+    color: #666;
+    font-size: 13px;
+    font-style: italic;
+  }
+  .test {
+    background: #108ee9;
+    color: #ffffff;
+    padding: 0 10px;
+  }
+  .code {
+    background-color: #404040;
+    color: #ffffff;
+    padding-top: 15px;
+    font-family: 'Microsoft Yahei';
+    font-size: 14px;
+  }
 </style>
 <body>
 
+<h2 class="title">一、文字垂直居中</h2>
+
 <div class="demo">
-	<h3 class="title">1. 单行文字垂直居中(不支持多行居中)</h3>
-	<p class="description">具体方法就是将元素 line-height 设置成与其高度一致，此时文字就是居中的。但是缺点是不支持换行。</p>
-	<div class="test single-line-vertical-align">
-		这一行文字是居中的，但是不能换行。
-	</div>
-	<style>
-		.single-line-vertical-align {
-			height: 100px;
-			line-height: 100px;
-		}
-	</style>
+  <h3 class="title">1. 单行文字垂直居中</h3>
+  <p class="description">具体方法就是将元素 line-height 设置成与其高度一致，此时文字就是居中的。但是缺点是不支持换行。</p>
+  <div class="test single-line-vertical-align">
+    这一行文字是居中的，但是不能换行。
+  </div>
+  <style>
+    .single-line-vertical-align {
+      height: 100px;
+      line-height: 100px;
+    }
+  </style>
+</div>
+
+<div class="demo">
+  <h3 class="title">2. 多行文字垂直居中</h3>
+  <p class="description">display: table-cell; vertical-align: middle;</p>
+  <div class="test display-table">
+    这一行文字是居中的，<br>而且可以换行
+  </div>
+  <pre class="code">
+    .display-table {
+      height: 100px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  </pre>
+  <style>
+    .display-table {
+      height: 100px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  </style>
+</div>
+
+<h2 class="title">二、元素垂直居中</h2>
+
+<div class="demo">
+  <h3 class="title">1. 固定高度元素垂直居中</h3>
+  <p class="description">具有固定高度的元素实现垂直居中相对容易。</p>
+  <div class="test parent">
+  	parent
+    <div class="child height">child height</div>
+  </div>
+  <pre class="code">
+    .parent {
+      height: 200px;
+      position: relative;
+    }
+    .parent .child.height {
+      height: 100px;
+      background-color: #49a9ee;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin-top: -50px;
+    }
+  </pre>
+  <style>
+    .parent {
+      height: 200px;
+      position: relative;
+    }
+    .parent .child.height {
+      height: 100px;
+      background-color: #49a9ee;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin-top: -50px;
+    }
+  </style>
 </div>
 
 </body>
